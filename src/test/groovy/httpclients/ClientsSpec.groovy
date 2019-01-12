@@ -44,7 +44,7 @@ class ClientsSpec extends Specification {
     private void stubWithDelay(int delay) {
         stubFor(get("/").willReturn(aResponse()
                 .withFixedDelay(delay)
-                .withBody("Hello JavaZone!")
+                .withBody("Hello WDI!")
         ))
     }
 
@@ -141,7 +141,7 @@ class ClientsSpec extends Specification {
 
         and:
         HttpClientConnectionManager manager = new PoolingHttpClientConnectionManager()
-        manager.setDefaultMaxPerRoute(15)
+        manager.setDefaultMaxPerRoute(15) // route is host:port
         manager.setMaxTotal(200)
 
         HttpClient client = HttpClientBuilder.create()
